@@ -12,6 +12,8 @@
     <section class="container">
       <h1>Sigmanaut's angular list</h1>
       <h3>Add a new person</h3>
+
+      <label>Search: <input ng-model="searchText"></label>
       <form class="col-md-12">
         <div class="form-group col-md-6">
           <label for="firstName">First Name</label>
@@ -36,14 +38,14 @@
     <section class="container">
       <h3>Class List</h3>
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="person in sigmanaut.people"> <!-- What needs to be repeated? -->
+        <li class="list-group-item" ng-repeat="person in sigmanaut.people | filter:searchText"> <!-- What needs to be repeated? -->
 
           <!-- TODO: Create a list item for everyone in the class -->
 
-          {{person.firstName}} {{person.lastName}} - {{person.shoutout}}<!-- include the other parameters for the person -->
+          <a ng-href = "https://github.com/{{person.git_username}}">{{person.firstName}} {{person.lastName}}</a>  - {{person.shoutout}}<!-- include the other parameters for the person -->
         </li>
       </ul>
     </section>
   </main>
-</body>
+</body>"
 </html>
